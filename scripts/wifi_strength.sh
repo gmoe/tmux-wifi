@@ -9,6 +9,6 @@ print_wifi_strength() {
 }
 
 main() {
-  local str="$(print_wifi_strength)"
+  print_wifi_strength
 }
 main
