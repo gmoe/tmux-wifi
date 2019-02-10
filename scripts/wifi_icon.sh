@@ -11,25 +11,38 @@ icon_3="⚌ "
 icon_4="☱ "
 icon_5="☰ "
 
+macos_wifi_strength() {
+  macos_airport_status | grep -e "CtlRSSI" | awk -F '-' '{print $2}'
+}
+
 print_icon() {
-  local strength=$(airport_status | grep -e "CtlRSSI" | awk -F '-' '{print $2}')
-	if [[ -z "$strength" ]]; then
-		printf "$icon_off"
-	elif [[ $strength < 50 ]]; then
-		printf "$icon_5"
-	elif [[ $strength < 60 ]]; then
-		printf "$icon_4"
-	elif [[ $strength < 70 ]]; then
-		printf "$icon_3"
-	elif [[ $strength < 80 ]]; then
-		printf "$icon_2"
-	elif [[ $strength < 90 ]]; then
-		printf "$icon_1"
-	fi
+  local strength=''
+
+  case $(uname) in
+    "Darwin")
+      strength=$(macos_wifi_strength)
+      ;;
+    "Linux")
+      ;;
+  esac
+
+  if [[ -z "$strength" ]]; then
+    printf "$icon_off"
+  elif [[ $strength < 50 ]]; then
+    printf "$icon_5"
+  elif [[ $strength < 60 ]]; then
+    printf "$icon_4"
+  elif [[ $strength < 70 ]]; then
+    printf "$icon_3"
+  elif [[ $strength < 80 ]]; then
+    printf "$icon_2"
+  elif [[ $strength < 90 ]]; then
+    printf "$icon_1"
+  fi
 }
 
 main() {
-	print_icon
+  print_icon
 }
 
 main
