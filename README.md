@@ -5,11 +5,17 @@ status, in the style of [tmux-plugins](https://github.com/tmux-plugins).
 
 SSID and signal icon:
 
-![ssid-icon](/images/ssid-icon.png)
+<img
+  width="147"
+  alt="ssid-icon"
+  src="https://user-images.githubusercontent.com/7128551/52537064-2bffc600-2d5a-11e9-9c9a-881f0a74ae78.png">
 
 Signal strength in dB:
 
-![strength](/images/strength.png)
+<img
+  width="55"
+  alt="strength"
+  src="https://user-images.githubusercontent.com/7128551/52537065-31f5a700-2d5a-11e9-92d0-56fc8ac40dca.png">
 
 ## Usage
 
