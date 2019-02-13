@@ -1,17 +1,7 @@
 #!/usr/bin/env bash
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-case $(uname) in
-    "Darwin")
-      source "$CURRENT_DIR/modules/airport.sh"
-      ;;
-    "Linux")
-      if command -v iw > /dev/null 2>&1; then
-        source "$CURRENT_DIR/modules/iw.sh"
-      fi
-      ;;
-  esac
+source "$CURRENT_DIR/scripts/source_module.sh"
 
 wifi_strength="#($CURRENT_DIR/scripts/wifi_strength.sh)"
 wifi_icon="#($CURRENT_DIR/scripts/wifi_icon.sh)"
