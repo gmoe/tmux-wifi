@@ -1,7 +1,7 @@
 # Tmux Wi-fi Status
 
-This is a Tmux status line plugin that displays your current wifi
-status, in the style of [tmux-plugins](https://github.com/tmux-plugins). 
+This is a Tmux status line plugin that displays your current wifi status, in
+the style of [tmux-plugins](https://github.com/tmux-plugins).
 
 SSID and signal icon:
 
@@ -24,32 +24,51 @@ This plugin provides three format strings that you can use in your status line:
 - `#{wifi_strength}` - displays your wifi strength in dB
 - `#{wifi_icon}` - displays an icon modelling signal strength
 
-Here is an example status line: 
+Here is an example status line:
 
-```
+```sh
 set -g status-right '#{wifi_ssid} #{wifi_icon} | %d %B %Y | %I:%M%p '
 ```
 
-## Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
+## OS Support
+
+This plugin supports the following operating systems:
+
+* macOS
+* Linux (using `iw`)
+
+Feel free to submit PRs to [support other OSs](CONTRIBUTERS.md).
+
+## Installation
+
+## Using [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
 
 If you're familiar with TPM, you can add this plugin to the list of TPM plugins
 in `.tmux.conf`:
 
-    set -g @plugin 'gmoe/tmux-wifi-macos'
+```sh
+set -g @plugin 'gmoe/tmux-wifi'
+```
 
 ## Manual Installation
 
 Clone the repo:
 
-    $ git clone https://github.com/gmoe/tmux-wifi-macos ~/.tmux/plugins/tmux-wifi-macos
+```sh
+$ git clone https://github.com/gmoe/tmux-wifi ~/.tmux/plugins/tmux-wifi
+```
 
 Add this line to the bottom of `.tmux.conf`:
 
-    run-shell ~/.tmux/plugins/tmux-wifi-macos/wifi-macos.tmux
+```sh
+run-shell ~/.tmux/plugins/tmux-wifi/tmux-wifi.tmux
+```
 
 Reload TMUX environment:
 
-    $ tmux source-file ~/.tmux.conf
+```sh
+$ tmux source-file ~/.tmux.conf
+```
 
 ## License
 
