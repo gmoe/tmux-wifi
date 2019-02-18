@@ -1,6 +1,6 @@
-# Tmux Wi-fi Status (macOS)
+# Tmux Wi-fi Status
 
-This is a Tmux status line plugin for macOS displays your current wifi
+This is a Tmux status line plugin that displays your current wifi
 status, in the style of [tmux-plugins](https://github.com/tmux-plugins). 
 
 SSID and signal icon:

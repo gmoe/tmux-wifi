@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
-
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-source "$CURRENT_DIR/helpers.sh"
+source "$CURRENT_DIR/source_module.sh"
 
 icon_off="⚋ "
 icon_1="⚊ "
@@ -11,20 +9,8 @@ icon_3="⚌ "
 icon_4="☱ "
 icon_5="☰ "
 
-macos_wifi_strength() {
-  macos_airport_status | grep -e "CtlRSSI" | awk -F '-' '{print $2}'
-}
-
 print_icon() {
-  local strength=''
-
-  case $(uname) in
-    "Darwin")
-      strength=$(macos_wifi_strength)
-      ;;
-    "Linux")
-      ;;
-  esac
+  local strength=$(get_wifi_strength)
 
   if [[ -z "$strength" ]]; then
     printf "$icon_off"

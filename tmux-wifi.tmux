@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-source "$CURRENT_DIR/scripts/helpers.sh"
+source "$CURRENT_DIR/scripts/source_module.sh"
 
 wifi_strength="#($CURRENT_DIR/scripts/wifi_strength.sh)"
 wifi_icon="#($CURRENT_DIR/scripts/wifi_icon.sh)"

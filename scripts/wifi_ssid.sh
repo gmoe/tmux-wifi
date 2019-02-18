@@ -1,20 +1,8 @@
 #!/usr/bin/env bash
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-source "$CURRENT_DIR/helpers.sh"
-
-macos_wifi_ssid() {
-  macos_airport_status | grep -e '\bSSID:\B' | awk '{for(i=n;i<=NF;i++)$(i-(n-1))=$i;NF=NF-(n-1);print $0}' n=2
-}
-
+source "$CURRENT_DIR/source_module.sh"
 main() {
-  case $(uname) in
-    "Darwin")
-      macos_wifi_ssid
-      ;;
-    "Linux")
-      ;;
-  esac
+  get_wifi_ssid
 }
 main
