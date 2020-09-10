@@ -30,6 +30,20 @@ Here is an example status line:
 set -g status-right '#{wifi_ssid} #{wifi_icon} | %d %B %Y | %I:%M%p '
 ```
 
+### Configuration
+
+The icons displayed by `${wifi_icon}` can be configured to whatever values you want, where `5` represents the
+highest signal strength and `1` is the lowest. `off` means that the network adaptor is turned off.
+
+```sh
+set -g @tmux_wifi_icon_5 "☰"
+set -g @tmux_wifi_icon_4 "☱"
+set -g @tmux_wifi_icon_3 "⚌"
+set -g @tmux_wifi_icon_2 "⚍"
+set -g @tmux_wifi_icon_1 "⚊"
+set -g @tmux_wifi_icon_off "⚋"
+```
+
 ## OS Support
 
 This plugin supports the following operating systems:
